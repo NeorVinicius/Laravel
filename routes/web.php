@@ -13,8 +13,16 @@ use App\Http\Middleware\LogAcessoMiddleware;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
 
+
+Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
+Route::get('/contato', [App\Http\Controllers\Contato::class, 'contato']);
+
+// Aluno
+Route::get('/login/aluno', [App\Http\Controllers\Aluno::class, '/login']);
+Route::get('/boletim', [App\Http\Controllers\Boletim::class, 'boletim']);
+Route::get('/presenca', [App\Http\Controllers\Presenca::class, 'presenca']);
+Route::get('/desenpenho', [App\Http\Controllers\Contato::class, 'desenpenho']);
 
 
 
