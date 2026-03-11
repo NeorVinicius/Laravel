@@ -7,10 +7,9 @@ use Illuminate\Http\Request;
 class Contato extends Controller
 {
     function contato(){
-        echo 'Página Contato';
+        return view ('pagina-contato');
     }
 
-    
 }
 
-
+?>

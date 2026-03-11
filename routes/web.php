@@ -15,14 +15,11 @@ use App\Http\Middleware\LogAcessoMiddleware;
 
 
 
-Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
-Route::get('/contato', [App\Http\Controllers\Contato::class, 'contato']);
+Route::get('/', [App\Http\Controllers\Principal::class, 'index'])->name('pagina-principal');
+Route::get('/sobre', [App\Http\Controllers\Sobre::class, 'sobre'])->name('pagina-sobre');
+Route::get('/contato', [App\Http\Controllers\Contato::class, 'contato'])->name('pagina-contato');
 
-// Aluno
-Route::get('/login/aluno', [App\Http\Controllers\Aluno::class, '/login']);
-Route::get('/boletim', [App\Http\Controllers\Boletim::class, 'boletim']);
-Route::get('/presenca', [App\Http\Controllers\Presenca::class, 'presenca']);
-Route::get('/desenpenho', [App\Http\Controllers\Contato::class, 'desenpenho']);
+Route::get('/ds', [App\Http\Controllers\Desenvolvimento::class, 'ds'])->name('pagina-ds');
 
-
+Route::get('/contato', [App\Http\Controllers\Contato::class, 'contato'])->name('pagina-contato');
 
