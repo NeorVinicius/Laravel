@@ -16,13 +16,15 @@ use App\Http\Middleware\LogAcessoMiddleware;
 
 
 Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
-Route::get('/contato', [App\Http\Controllers\Contato::class, 'contato']);
 
-// Aluno
-Route::get('/login/aluno', [App\Http\Controllers\Aluno::class, '/login']);
-Route::get('/boletim', [App\Http\Controllers\Boletim::class, 'boletim']);
-Route::get('/presenca', [App\Http\Controllers\Presenca::class, 'presenca']);
-Route::get('/desenpenho', [App\Http\Controllers\Contato::class, 'desenpenho']);
+Route::get('/somar/{p1}/{p2}', [App\Http\Controllers\Principal::class, 'somar']);
+Route::get('/subtrair/{p1}/{p2}', [App\Http\Controllers\Principal::class, 'subtrair']);
+Route::get('/multiplicar/{p1}/{p2}', [App\Http\Controllers\Principal::class, 'multiplicar']);
+Route::get('/dividir/{p1}/{p2}', [App\Http\Controllers\Principal::class, 'dividir']);
 
+
+Route::get('/produtos/listar', [App\Http\Controllers\Produtos::class, 'listar']);
+
+Route::get('/clientes/listar', [App\Http\Controllers\Clientes::class, 'listar']);
 
 
