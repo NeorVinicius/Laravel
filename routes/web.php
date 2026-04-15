@@ -16,13 +16,12 @@ use App\Http\Middleware\LogAcessoMiddleware;
 
 
 Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
-Route::get('/contato', [App\Http\Controllers\Contato::class, 'contato']);
 
-// Aluno
-Route::get('/login/aluno', [App\Http\Controllers\Aluno::class, '/login']);
-Route::get('/boletim', [App\Http\Controllers\Boletim::class, 'boletim']);
-Route::get('/presenca', [App\Http\Controllers\Presenca::class, 'presenca']);
-Route::get('/desenpenho', [App\Http\Controllers\Contato::class, 'desenpenho']);
-
-
+Route::prefix('/aluno')->group(function(){
+    Route::get('/index', [App\Http\Controllers\AlunoController::class, 'index'])->name('aluno.index');
+    Route::post('/adicionar', [App\Http\Controllers\AlunoController::class, 'adicionar'])->name('aluno.adicionar');
+    Route::post('/remover', [App\Http\Controllers\AlunoController::class, 'remover'])->name('aluno.remover');
+    Route::post('/atualizar', [App\Http\Controllers\AlunoController::class, 'atualizar'])->name('aluno.atualizar');
+    Route::get('/consultar', [App\Http\Controllers\AlunoController::class, 'consultar'])->name('aluno.consultar');
+});
 
