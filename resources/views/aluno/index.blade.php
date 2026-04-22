@@ -1,6 +1,6 @@
 
 
-<form action="{{ Route('aluno.adicionar') }}" method="post">
+<form action="{{ Route('aluno.add') }}" method="post">
     @csrf
     <label for="nome">Nome</label>
     <input type="text" name="nome" id="nome">
@@ -9,7 +9,14 @@
     <input type="email" name="email" id="email">
 
     <button type="submit">Salvar</button>
-    @isset($sucesso)
-        <h1>{{ $sucesso }}</h1>
+    @isset($success)
+        <h1>{{ $success }}</h1>
+    @endisset
+    @isset($alunos)
+        @foreach($alunos as $aluno)
+            <h2>{{ $aluno->nome }}</h2>
+        @endforeach
+
+       
     @endisset
 </form>

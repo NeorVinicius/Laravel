@@ -10,22 +10,25 @@ class AlunoController extends Controller
         return view("aluno.index");
     }
 
-    function adicionar(Request $dados) {
+    function add(Request $dados) {
         $aluno = new \App\Models\AlunoModel();
         $aluno::create($dados->all());
         
-        return view ('aluno.index', ['sucesso'=>'Aluno cadastrado!']); 
+        $alunos = new \App\Models\AlunoModel();
+        
+
+        return view ('aluno.index', ['success'=>'Aluno cadastrado!', 'alunos'=>$alunos::all()]); 
     }
 
-    function remover(Request $dados) {
+    function remove(Request $dados) {
 
     }
 
-    function atualizar(Request $dados) {
+    function edit(Request $dados) {
 
     }
 
-    function consultar(Request $dados) {
+    function list(Request $dados) {
 
     }
 }
