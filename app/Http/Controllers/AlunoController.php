@@ -6,29 +6,19 @@ use Illuminate\Http\Request;
 
 class AlunoController extends Controller
 {
-    function index() {
-        return view("aluno.index");
+    function index(){ 
+        return view('aluno.index');
     }
 
-    function add(Request $dados) {
+    function add(Request $dados) { 
         $aluno = new \App\Models\AlunoModel();
         $aluno::create($dados->all());
-        
-        $alunos = new \App\Models\AlunoModel();
-        
+    
+    //RECUPERANDO TODOS ALUNOS DO BANCO E ENVIANDO PARA A VIEW
+				
+    $alunos = new \App\Models\AlunoModel();
 
-        return view ('aluno.index', ['success'=>'Aluno cadastrado!', 'alunos'=>$alunos::all()]); 
-    }
-
-    function remove(Request $dados) {
-
-    }
-
-    function edit(Request $dados) {
-
-    }
-
-    function list(Request $dados) {
+    return view('aluno.index', ['success'=>'Cadastrado!', 'alunos'=>$alunos::all()]);
 
     }
 }
