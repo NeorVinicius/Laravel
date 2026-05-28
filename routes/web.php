@@ -20,17 +20,23 @@ Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
 Route::prefix('/aluno')->group(function(){
     Route::get('/index', [App\Http\Controllers\AlunoController::class, 'index'])->name('aluno.index');
     Route::post('/add', [App\Http\Controllers\AlunoController::class, 'add'])->name('aluno.add');
-    Route::post('/remove', [App\Http\Controllers\AlunoController::class, 'remove'])->name('aluno.remove');
+    Route::get('/remove/{id}', [App\Http\Controllers\AlunoController::class, 'remove'])->name('aluno.remove');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\AlunoController::class, 'atualizar'])->name('aluno.atualizar');
+    Route::post('/save', [App\Http\Controllers\AlunoController::class, 'save'])->name('aluno.save');
 });
 
 Route::prefix('/curso')->group(function(){
     Route::get('/index', [App\Http\Controllers\CursoController::class, 'index'])->name('curso.index');
     Route::post('/add', [App\Http\Controllers\CursoController::class, 'add'])->name('curso.add');
-    Route::post('/remove', [App\Http\Controllers\CursoController::class, 'remove'])->name('curso.remove');
+    Route::get('/remove/{id}', [App\Http\Controllers\CursoController::class, 'remove'])->name('curso.remove');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\CursoController::class, 'atualizar'])->name('curso.atualizar');
+    Route::post('/save', [App\Http\Controllers\CursoController::class, 'save'])->name('curso.save');
 });
 
 Route::prefix('/professor')->group(function(){
     Route::get('/index', [App\Http\Controllers\ProfController::class, 'index'])->name('professor.index');
     Route::post('/add', [App\Http\Controllers\ProfController::class, 'add'])->name('professor.add');
-    Route::post('/remove', [App\Http\Controllers\ProfController::class, 'remove'])->name('professor.remove');
+    Route::get('/remove/{id}', [App\Http\Controllers\ProfController::class, 'remove'])->name('professor.remove');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\ProfController::class, 'atualizar'])->name('professor.atualizar');
+    Route::post('/save', [App\Http\Controllers\ProfController::class, 'save'])->name('professor.save');
 });

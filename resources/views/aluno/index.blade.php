@@ -1,19 +1,39 @@
 
+<div>
+    <form action="{{ Route('aluno.add') }}" method="post">
+        @csrf
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome">
 
-<form action="{{ Route('aluno.add') }}" method="post">
-    @csrf
-    <label for="nome">Nome</label>
-    <input type="text" name="nome" id="nome">
+        <button type="submit">Salvar</button>
+        @isset($success)
+            <h1>{{ $success }}</h1> 
+        @endisset
+    </form>
 
-    <button type="submit">Salvar</button>
-    @isset($success)
-        <h1>{{ $success }}</h1>
-    @endisset
-    @isset($alunos)
-        @foreach($alunos as $aluno)
-            <h2>{{ $aluno->nome }}</h2>
-        @endforeach
-
-       
-    @endisset
-</form>
+    <table border="1">
+            <tr>
+                <td>Nome do Aluno</td>
+                <td colspan="2">Ações</td>
+            </tr>
+            @isset($alunos)
+                    @foreach($alunos as $aluno)
+                        <tr>
+                            <td>
+                                <h3>{{ $aluno->nome }}</h3>
+                            </td>
+                            <td>
+                                <form action="{{ route('aluno.remove', ['id' => $aluno->id]) }}" method="GET">
+                                    <button type="submit">Remover</button>
+                                </form>
+                            </td>
+                            <td>
+                            <form action="{{ route('aluno.atualizar', ['id' => $aluno->id]) }}" method="GET">
+                                <button type="submit">Atualizar</button>
+                            </form>
+                            </td>
+                        </tr>
+                    @endforeach
+            @endisset
+    </table>
+</div>
