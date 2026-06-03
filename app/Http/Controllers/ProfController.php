@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class ProfController extends Controller
 {
     function index(){ 
-        return view('prof.index');
+        $curso = new \App\Models\ProfModel();
+        return view('prof.index', ['professores'=>$professor::all()]);
     }
 
     function add(Request $dados) { 
@@ -34,6 +35,15 @@ class ProfController extends Controller
         $professor = new \App\Models\ProfModel();
         $professor = $professor::find($id);
 
-        return view('professor.atualizar', ['professor'=>$professor]);
+        return view('prof.atualizar', ['professor'=>$professor]);
     }
+
+    function save(Request $dados) {
+        $professor = new \App\Models\ProfModel();
+        $professor = $professor::find($dados->id);
+        $professor->update($dados->all());
+
+        return view('prof.index', ['success'=>'Atualizado!', 'professores'=>$professor::all()]);
+    }
+
 }
