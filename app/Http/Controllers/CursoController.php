@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CursoController extends Controller
 {
@@ -24,8 +25,8 @@ class CursoController extends Controller
                   'nome.min' => 'O campo nome deve conter no mínimo 2 caracteres.',
                   'nome.max' => 'O campo nome deve conter no máximo 250 caracteres.',
                   
-                  'periodo.required' => 'O campo nome é obrigatório.',
-                  'periodo.min' => 'O campo nome deve conter no mínimo 2 caracteres.',
+                  'periodo.required' => 'O campo periodo é obrigatório.',
+                  'periodo.min' => 'O campo periodo deve conter no mínimo 3 caracteres.',
                   'periodo.max' => 'O campo nome deve conter no máximo 250 caracteres.',
               ]
               

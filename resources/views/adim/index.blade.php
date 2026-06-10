@@ -1,6 +1,6 @@
 
 <div>
-    <form action="{{ Route('professor.add') }}" method="post">
+    <form action="{{ Route('adm.add') }}" method="post">
         @csrf
         <label for="nome">Nome</label>
         <input type="text" name="nome" id="nome" value="{{ old('nome') }}">
@@ -10,6 +10,18 @@
 
         <label for="telefone">Telefone</label>
         <input type="text" name="telefone" id="telefone" value="{{ old('telefone') }}">
+
+        <label for="cpf">Cpf</label>
+        <input type="text" name="cpf" id="cpf" value="{{ old('telefone') }}">
+
+        <label for="usuario">Usuario</label>
+        <input type="text" name="usuario" id="usuario" value="{{ old('telefone') }}">
+
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" id="senha" value="{{ old('telefone') }}">
+
+        <label for="status">Status</label>
+        <input type="text" name="status" id="status" value="{{ old('telefone') }}">
 
         <button type="submit">Salvar</button>
         @isset($success)
@@ -29,7 +41,10 @@
             <tr>
                 <td>Nome</td>
                 <td>Email</td>
-                <td>Telefone</td>
+                <td>Cpf</td>
+                <td>Usuario</td>
+                <td>Senha</td>
+                <td>Status</td>
                 <td colspan="2">Ações</td>
             </tr>
             @isset($professores)
@@ -45,12 +60,12 @@
                                 <h3>{{ $professor->telefone }}</h3>
                             </td>
                             <td>
-                                <form action="{{ route('professor.remove', ['id' => $professor->id]) }}" method="GET">
+                                <form action="{{ route('adm.remove', ['id' => $adm->id]) }}" method="GET">
                                     <button type="submit">Remover</button>
                                 </form>
                             </td>
                             <td>
-                                <form action="{{ route('professor.atualizar', ['id' => $professor->id]) }}" method="GET">
+                                <form action="{{ route('adm.atualizar', ['id' => $adm->id]) }}" method="GET">
                                     <button type="submit">Atualizar</button>
                                 </form>
                             </td>

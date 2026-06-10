@@ -40,3 +40,11 @@ Route::prefix('/professor')->group(function(){
     Route::get('/atualizar/{id}', [App\Http\Controllers\ProfController::class, 'atualizar'])->name('professor.atualizar');
     Route::post('/save', [App\Http\Controllers\ProfController::class, 'save'])->name('professor.save');
 });
+
+Route::prefix('/adm')->group(function(){
+    Route::get('/index', [App\Http\Controllers\AdmController::class, 'index'])->name('adm.index');
+    Route::post('/add', [App\Http\Controllers\AdmController::class, 'add'])->name('adm.add');
+    Route::get('/remove/{id}', [App\Http\Controllers\AdmController::class, 'remove'])->name('adm.remove');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\AdmController::class, 'atualizar'])->name('adm.atualizar');
+    Route::post('/save', [App\Http\Controllers\AdmController::class, 'save'])->name('adm.save');
+});
