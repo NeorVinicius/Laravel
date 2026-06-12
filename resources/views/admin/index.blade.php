@@ -3,25 +3,22 @@
     <form action="{{ Route('adm.add') }}" method="post">
         @csrf
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" value="{{ old('nome') }}">
+        <input type="text" name="nome" id="nome">
 
         <label for="email">E-mail</label>
-        <input type="email" name="email" id="email" value="{{ old('email') }}">
-
-        <label for="telefone">Telefone</label>
-        <input type="text" name="telefone" id="telefone" value="{{ old('telefone') }}">
+        <input type="email" name="email" id="email">
 
         <label for="cpf">Cpf</label>
-        <input type="text" name="cpf" id="cpf" value="{{ old('telefone') }}">
+        <input type="text" name="cpf" id="cpf">
 
         <label for="usuario">Usuario</label>
-        <input type="text" name="usuario" id="usuario" value="{{ old('telefone') }}">
+        <input type="text" name="usuario" id="usuario">
 
         <label for="senha">Senha</label>
-        <input type="password" name="senha" id="senha" value="{{ old('telefone') }}">
+        <input type="password" name="senha" id="senha">
 
         <label for="status">Status</label>
-        <input type="text" name="status" id="status" value="{{ old('telefone') }}">
+        <input type="text" name="status" id="status">
 
         <button type="submit">Salvar</button>
         @isset($success)
@@ -51,13 +48,22 @@
                 @foreach($professores as $professor)
                         <tr>
                             <td>
-                                <h3>{{ $professor->nome }}</h3>
+                                <h3>{{ $adm->nome }}</h3>
                             </td>
                             <td>
-                                <h3>{{ $professor->email }}</h3>
+                                <h3>{{ $adm->email }}</h3>
                             </td>
                             <td>
-                                <h3>{{ $professor->telefone }}</h3>
+                                <h3>{{ $adm->cpf }}</h3>
+                            </td>
+                            <td>
+                                <h3>{{ $adm->usuario }}</h3>
+                            </td>
+                            <td>
+                                <h3>{{ $adm->senha }}</h3>
+                            </td>
+                            <td>
+                                <h3>{{ $adm->status }}</h3>
                             </td>
                             <td>
                                 <form action="{{ route('adm.remove', ['id' => $adm->id]) }}" method="GET">
