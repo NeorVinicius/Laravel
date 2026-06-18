@@ -39,12 +39,18 @@
                                 <h3>{{ $componente->nome }}</h3>
                             </td>
                             <td>
-                                <form action="{{ route('aluno.remove', ['id' => $aluno->id]) }}" method="GET">
+                                <h3>{{ $componente->hora_inicio }}</h3>
+                            </td>
+                            <td>
+                                <h3>{{ $componente->hora_fim }}</h3>
+                            </td>
+                            <td>
+                                <form action="{{ route('componente.remove', ['id' => $componente->id]) }}" method="GET">
                                     <button type="submit">Remover</button>
                                 </form>
                             </td>
                             <td>
-                            <form action="{{ route('aluno.atualizar', ['id' => $aluno->id]) }}" method="GET">
+                            <form action="{{ route('componente.atualizar', ['id' => $componente->id]) }}" method="GET">
                                 <button type="submit">Atualizar</button>
                             </form>
                             </td>

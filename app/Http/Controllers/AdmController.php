@@ -59,7 +59,7 @@ class AdmController extends Controller
 
       if ($validator->fails()) {
           return redirect()
-              ->route('admin.index')
+              ->route('adm.index')
               ->withErrors($validator)
               ->withInput();
       }

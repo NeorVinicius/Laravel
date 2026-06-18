@@ -50,9 +50,9 @@ Route::prefix('/adm')->group(function(){
 });
 
 Route::prefix('/componente')->group(function(){
-    Route::get('/index', [App\Http\Controllers\AdmController::class, 'index'])->name('componente.index');
-    Route::post('/add', [App\Http\Controllers\AdmController::class, 'add'])->name('componente.add');
-    Route::get('/remove/{id}', [App\Http\Controllers\AdmController::class, 'remove'])->name('componente.remove');
-    Route::get('/atualizar/{id}', [App\Http\Controllers\AdmController::class, 'atualizar'])->name('componente.atualizar');
-    Route::post('/save', [App\Http\Controllers\AdmController::class, 'save'])->name('componente.save');
+    Route::get('/index', [App\Http\Controllers\CompController::class, 'index'])->name('componente.index');
+    Route::post('/add', [App\Http\Controllers\CompController::class, 'add'])->name('componente.add');
+    Route::get('/remove/{id}', [App\Http\Controllers\CompController::class, 'remove'])->name('componente.remove');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\CompController::class, 'atualizar'])->name('componente.atualizar');
+    Route::post('/save', [App\Http\Controllers\CompController::class, 'save'])->name('componente.save');
 });
