@@ -29,7 +29,7 @@ class AlunoController extends Controller
 
       if ($validator->fails()) {
           return redirect()
-              ->route('aluno.index')
+              ->route('comp.index')
               ->withErrors($validator)
               ->withInput();
       }
