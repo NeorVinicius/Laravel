@@ -31,7 +31,6 @@ class CompController extends Controller
 
                   'hora_fim.required' => 'O campo Hora do término é obrigatório. Ex. (11:40:00 2024-05-12 )',
 
-
               ]
       );
 
