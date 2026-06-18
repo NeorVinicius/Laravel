@@ -1,6 +1,6 @@
 
 <div>
-    <form action="{{ Route('aluno.add') }}" method="post">
+    <form action="{{ Route('componente.add') }}" method="post">
         @csrf
         <label for="nome">Nome</label>
         <input type="text" name="nome" id="nome" value="{{ old('nome') }}">
@@ -21,14 +21,16 @@
 
     <table border="1">
             <tr>
-                <td>Nome do Aluno</td>
+                <td>Nome</td>
+                <td>Inicio</td>
+                <td>Fim</td>
                 <td colspan="2">Ações</td>
             </tr>
-            @isset($alunos)
-                    @foreach($alunos as $aluno)
+            @isset($componentes)
+                    @foreach($componentes as $componente)
                         <tr>
                             <td>
-                                <h3>{{ $aluno->nome }}</h3>
+                                <h3>{{ $componente->nome }}</h3>
                             </td>
                             <td>
                                 <form action="{{ route('aluno.remove', ['id' => $aluno->id]) }}" method="GET">

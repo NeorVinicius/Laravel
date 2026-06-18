@@ -2,10 +2,10 @@
     <form action="{{ Route('curso.add') }}" method="post">
      @csrf
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome">
+        <input type="text" name="nome" id="nome" value="{{ old('nome') }}">
 
         <label for="periodo">Periodo</label>
-        <input type="text" name="periodo" id="periodo">
+        <input type="text" name="periodo" id="periodo" value="{{ old('periodo') }}">
 
         <button type="submit">Salvar</button>
         @isset($success)

@@ -3,22 +3,25 @@
     <form action="{{ Route('adm.add') }}" method="post">
         @csrf
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome">
+        <input type="text" name="nome" id="nome" value="{{ old('nome') }}">
 
         <label for="email">E-mail</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" value="{{ old('email') }}">
+        
+        <label for="telefone">Telefone</label>
+        <input type="text" name="telefone" id="telefone" value="{{ old('telefone') }}">
 
         <label for="cpf">Cpf</label>
-        <input type="text" name="cpf" id="cpf">
+        <input type="text" name="cpf" id="cpf" value="{{ old('cpf') }}">
 
         <label for="usuario">Usuario</label>
-        <input type="text" name="usuario" id="usuario">
+        <input type="text" name="usuario" id="usuario" value="{{ old('usuario') }}">
 
         <label for="senha">Senha</label>
-        <input type="password" name="senha" id="senha">
+        <input type="password" name="senha" id="senha" value="{{ old('senha') }}">
 
         <label for="status">Status</label>
-        <input type="text" name="status" id="status">
+        <input type="text" name="status" id="status" value="{{ old('status') }}">
 
         <button type="submit">Salvar</button>
         @isset($success)
@@ -38,20 +41,24 @@
             <tr>
                 <td>Nome</td>
                 <td>Email</td>
+                <td>Telefone</td>
                 <td>Cpf</td>
                 <td>Usuario</td>
                 <td>Senha</td>
                 <td>Status</td>
                 <td colspan="2">Ações</td>
             </tr>
-            @isset($professores)
-                @foreach($professores as $professor)
+            @isset($adms)
+                @foreach($adms as $adm)
                         <tr>
                             <td>
                                 <h3>{{ $adm->nome }}</h3>
                             </td>
                             <td>
                                 <h3>{{ $adm->email }}</h3>
+                            </td>
+                            <td>
+                                <h3>{{ $adm->telefone }}</h3>
                             </td>
                             <td>
                                 <h3>{{ $adm->cpf }}</h3>

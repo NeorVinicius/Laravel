@@ -48,3 +48,11 @@ Route::prefix('/adm')->group(function(){
     Route::get('/atualizar/{id}', [App\Http\Controllers\AdmController::class, 'atualizar'])->name('adm.atualizar');
     Route::post('/save', [App\Http\Controllers\AdmController::class, 'save'])->name('adm.save');
 });
+
+Route::prefix('/componente')->group(function(){
+    Route::get('/index', [App\Http\Controllers\AdmController::class, 'index'])->name('componente.index');
+    Route::post('/add', [App\Http\Controllers\AdmController::class, 'add'])->name('componente.add');
+    Route::get('/remove/{id}', [App\Http\Controllers\AdmController::class, 'remove'])->name('componente.remove');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\AdmController::class, 'atualizar'])->name('componente.atualizar');
+    Route::post('/save', [App\Http\Controllers\AdmController::class, 'save'])->name('componente.save');
+});

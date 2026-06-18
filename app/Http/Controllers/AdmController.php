@@ -10,7 +10,7 @@ class AdmController extends Controller
 
     function index(){ 
         $adm = new \App\Models\AdmModel();
-        return view('adm.index', ['adms'=>$adm::all()]);
+        return view('admin.index', ['adms'=>$adm::all()]);
     }
 
     function add(Request $dados) { 
@@ -39,27 +39,27 @@ class AdmController extends Controller
                   'telefone.min' => 'O campo telefone deve conter no mínimo 14 caracteres.',
                   'telefone.max' => 'O campo telefone deve conter no máximo 14 caracteres.',
 
-                  'cpf.required' => 'O campo email é obrigatório.',
+                  'cpf.required' => 'O campo CPF é obrigatório.',
                   'cpf.min' => 'O CPF deve conter no mínimo 11 caracteres.',
                   'cpf.max' => 'O CPF deve conter no máximo 11 caracteres.',
 
-                  'usuario.required' => 'O campo email é obrigatório.',
-                  'usuario.min' => 'O campo email deve conter no mínimo 3 caracteres.',
-                  'usuario.max' => 'O campo email deve conter no máximo 200 caracteres.',
+                  'usuario.required' => 'O campo usuario é obrigatório.',
+                  'usuario.min' => 'O campo usuario deve conter no mínimo 3 caracteres.',
+                  'usuario.max' => 'O campo usuario deve conter no máximo 200 caracteres.',
 
-                  'senha.required' => 'O campo email é obrigatório.',
+                  'senha.required' => 'A senha é obrigatório.',
                   'senha.min' => 'A senha deve conter no mínimo 6 caracteres.',
                   'senha.max' => 'A senha deve conter no máximo 40 caracteres.',
 
-                  'status.required' => 'O campo email é obrigatório.',
-                  'status.min' => 'O campo email deve conter no mínimo 5 caracteres.',
-                  'status.max' => 'O campo email deve conter no máximo 250 caracteres.'
+                  'status.required' => 'O status é obrigatório.',
+                  'status.min' => 'O campo status deve conter no mínimo 3 caracteres.',
+                  'status.max' => 'O campo status deve conter no máximo 50 caracteres.'
               ]
       );
 
       if ($validator->fails()) {
           return redirect()
-              ->route('adm.index')
+              ->route('admin.index')
               ->withErrors($validator)
               ->withInput();
       }
@@ -69,7 +69,7 @@ class AdmController extends Controller
         
         $adms = new \App\Models\AdmModel();
 
-        return view('adm.index', ['success'=>'Cadastrado!', 'adms'=>$adms::all()]);
+        return view('admin.index', ['success'=>'Cadastrado!', 'adms'=>$adms::all()]);
         
     }
     
@@ -77,23 +77,23 @@ class AdmController extends Controller
         $adm = new \App\Models\AdmModel();
         $adm::destroy($id);
 
-        return view('adm.index', ['success'=>'Removido!', 'adms'=>$adm::all()]);
+        return view('admin.index', ['success'=>'Removido!', 'adms'=>$adm::all()]);
 
     }
 
     function atualizar(string $id) {
         $adm = new \App\Models\AdmModel();
-        $adm = $aluno::find($id);
+        $adm = $adm::find($id);
 
-        return view('adm.atualizar', ['adm'=>$adm]);
+        return view('admin.atualizar', ['adm'=>$adm]);
     }
 
     function save(Request $dados) {
         $adm = new \App\Models\AdmModel();
-        $adm = $aluno::find($dados->id);
+        $adm = $adm::find($dados->id);
         $adm->update($dados->all());
 
-        return view('adm.index', ['success'=>'Atualizado!', 'adms'=>$adm::all()]);
+        return view('admin.index', ['success'=>'Atualizado!', 'adms'=>$adm::all()]);
     }
 
 }
