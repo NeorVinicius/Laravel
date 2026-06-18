@@ -23,9 +23,9 @@ class CompController extends Controller
                   'hora_fim' => 'required'
               ],
               [
-                  'nome.required' => 'O campo nome é obrigatório.',
-                  'nome.min' => 'O campo nome deve conter no mínimo 3 caracteres.',
-                  'nome.max' => 'O campo nome deve conter no máximo 255 caracteres.',
+                  'nome.required' => 'O campo Nome é obrigatório.',
+                  'nome.min' => 'O campo Nome deve conter no mínimo 3 caracteres.',
+                  'nome.max' => 'O campo Nome deve conter no máximo 255 caracteres.',
 
                   'hora_inicio.required' => 'O campo  Hora do inicio é obrigatório.  Ex. (07:30:00 2024-05-12 )',
 

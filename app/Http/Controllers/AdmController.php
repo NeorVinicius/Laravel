@@ -27,33 +27,33 @@ class AdmController extends Controller
                   'status' => 'required|min:3|max:50'
               ],
               [
-                  'nome.required' => 'O campo nome é obrigatório.',
-                  'nome.min' => 'O campo nome deve conter no mínimo 3 caracteres.',
-                  'nome.max' => 'O campo nome deve conter no máximo 255 caracteres.',
+                  'nome.required' => 'O campo Nome é obrigatório.',
+                  'nome.min' => 'O campo Nome deve conter no mínimo 3 caracteres.',
+                  'nome.max' => 'O campo Nome deve conter no máximo 255 caracteres.',
 
-                  'email.required' => 'O campo email é obrigatório.',
-                  'email.min' => 'O campo email deve conter no mínimo 5 caracteres.',
-                  'email.max' => 'O campo email deve conter no máximo 250 caracteres.',
+                  'email.required' => 'O campo Email é obrigatório.',
+                  'email.min' => 'O campo Email deve conter no mínimo 5 caracteres.',
+                  'email.max' => 'O campo Email deve conter no máximo 250 caracteres.',
 
-                  'telefone.required' => 'O campo telefone é obrigatório.',
-                  'telefone.min' => 'O campo telefone deve conter no mínimo 14 caracteres.',
-                  'telefone.max' => 'O campo telefone deve conter no máximo 14 caracteres.',
+                  'telefone.required' => 'O campo Telefone é obrigatório.',
+                  'telefone.min' => 'O campo Telefone deve conter no mínimo 14 caracteres.',
+                  'telefone.max' => 'O campo Telefone deve conter no máximo 14 caracteres.',
 
                   'cpf.required' => 'O campo CPF é obrigatório.',
                   'cpf.min' => 'O CPF deve conter no mínimo 11 caracteres.',
                   'cpf.max' => 'O CPF deve conter no máximo 11 caracteres.',
 
-                  'usuario.required' => 'O campo usuario é obrigatório.',
-                  'usuario.min' => 'O campo usuario deve conter no mínimo 3 caracteres.',
-                  'usuario.max' => 'O campo usuario deve conter no máximo 200 caracteres.',
+                  'usuario.required' => 'O campo Usuario é obrigatório.',
+                  'usuario.min' => 'O campo Usuario deve conter no mínimo 3 caracteres.',
+                  'usuario.max' => 'O campo Usuario deve conter no máximo 200 caracteres.',
 
-                  'senha.required' => 'A senha é obrigatório.',
-                  'senha.min' => 'A senha deve conter no mínimo 6 caracteres.',
-                  'senha.max' => 'A senha deve conter no máximo 40 caracteres.',
+                  'senha.required' => 'A Senha é obrigatório.',
+                  'senha.min' => 'A Senha deve conter no mínimo 6 caracteres.',
+                  'senha.max' => 'A Senha deve conter no máximo 40 caracteres.',
 
-                  'status.required' => 'O status é obrigatório.',
-                  'status.min' => 'O campo status deve conter no mínimo 3 caracteres.',
-                  'status.max' => 'O campo status deve conter no máximo 50 caracteres.'
+                  'status.required' => 'O Status é obrigatório.',
+                  'status.min' => 'O campo Status deve conter no mínimo 3 caracteres.',
+                  'status.max' => 'O campo Status deve conter no máximo 50 caracteres.'
               ]
       );
 

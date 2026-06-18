@@ -23,17 +23,17 @@ class ProfController extends Controller
                   'telefone' => 'required|min:14|max:14'
               ],
               [
-                  'nome.required' => 'O campo nome é obrigatório.',
-                  'nome.min' => 'O campo nome deve conter no mínimo 3 caracteres.',
-                  'nome.max' => 'O campo nome deve conter no máximo 250 caracteres.',
+                  'nome.required' => 'O campo Nome é obrigatório.',
+                  'nome.min' => 'O campo Nome deve conter no mínimo 3 caracteres.',
+                  'nome.max' => 'O campo Nome deve conter no máximo 250 caracteres.',
                   
-                  'email.required' => 'O campo email é obrigatório.',
-                  'email.min' => 'O campo email deve conter no mínimo 5 caracteres.',
-                  'email.max' => 'O campo email deve conter no máximo 250 caracteres.',
+                  'email.required' => 'O campo Email é obrigatório.',
+                  'email.min' => 'O campo Email deve conter no mínimo 5 caracteres.',
+                  'email.max' => 'O campo Email deve conter no máximo 250 caracteres.',
 
-                  'telefone.required' => 'O campo telefone é obrigatório.',
-                  'telefone.min' => 'O campo telefone deve conter no mínimo 14 caracteres.',
-                  'telefone.max' => 'O campo telefone deve conter no máximo 14 caracteres.',
+                  'telefone.required' => 'O campo Telefone é obrigatório.',
+                  'telefone.min' => 'O campo Telefone deve conter no mínimo 14 caracteres.',
+                  'telefone.max' => 'O campo Telefone deve conter no máximo 14 caracteres.',
               ]
               
       );

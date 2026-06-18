@@ -21,13 +21,13 @@ class CursoController extends Controller
                   'periodo' => 'required|min:3|max:250'
               ],
               [
-                  'nome.required' => 'O campo nome é obrigatório.',
-                  'nome.min' => 'O campo nome deve conter no mínimo 2 caracteres.',
-                  'nome.max' => 'O campo nome deve conter no máximo 250 caracteres.',
+                  'nome.required' => 'O campo Nome é obrigatório.',
+                  'nome.min' => 'O campo Nome deve conter no mínimo 2 caracteres.',
+                  'nome.max' => 'O campo Nome deve conter no máximo 250 caracteres.',
                   
-                  'periodo.required' => 'O campo periodo é obrigatório.',
-                  'periodo.min' => 'O campo periodo deve conter no mínimo 3 caracteres.',
-                  'periodo.max' => 'O campo nome deve conter no máximo 250 caracteres.',
+                  'periodo.required' => 'O campo Periodo é obrigatório.',
+                  'periodo.min' => 'O campo Periodo deve conter no mínimo 3 caracteres.',
+                  'periodo.max' => 'O campo Periodo deve conter no máximo 250 caracteres.',
               ]
               
       );
