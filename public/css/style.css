@@ -1,0 +1,373 @@
+:root{
+    --primary:#00AAFF;
+    --secondary:#0090D9;
+    --accent:#63C8FF;
+    --light:#DDF4FF;
+    --bg:#111;
+    --card:#1A1A1A;
+    --input:#222;
+  }
+  
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins";
+    scrollbar-width:thin;
+    scrollbar-color:var(--primary) #1A1A1A;
+  }
+  
+  body{
+    background:var(--bg);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+  }
+  
+  .container{
+    width:1200px;
+    height:650px;
+    border-radius:26px;
+    overflow:hidden;
+    position:relative;
+    border:2px solid #333;
+  }
+  
+  #borderLight{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:10;
+    border-radius:26px;
+  }
+  
+  .inner{
+    display:grid;
+    grid-template-columns:30% 70%;
+    background:var(--card);
+    border-radius:24px;
+    overflow:hidden;
+    width:100%;
+    height:100%;
+  }
+  
+  .left{
+    position:relative;
+  }
+  
+  .left img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  
+  .badge{
+    position:absolute;
+    top:30px;
+    right:-10px;
+    padding:12px 24px;
+    border-radius:14px;
+    background:linear-gradient(90deg, var(--primary), var(--accent));
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    line-height:1.2;
+  }
+  
+  .badge-month{
+    font-size:11px;
+    font-weight:400;
+    opacity:.85;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  
+  .badge-number{
+    font-size:22px;
+    font-weight:700;
+  }
+  
+  .right{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+    padding:25px;
+    color:white;
+    overflow:hidden;
+  }
+  
+  .calendar-area{
+    overflow-y:auto;
+  }
+  
+  .top{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+  }
+  
+  .top h1{
+    font-size:26px;
+  }
+  
+  .top button{
+    background:none;
+    border:none;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+  }
+  
+  .week{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    margin-top:20px;
+    color:#777;
+  }
+  
+  .days{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+    margin-top:10px;
+  }
+  
+  .day{
+    height:44px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    border-radius:12px;
+    transition:.3s;
+  }
+  
+  .day:hover{
+    background:linear-gradient(90deg, var(--primary), var(--secondary));
+  }
+  
+  .active{
+    background:linear-gradient(90deg, var(--primary), var(--light));
+    color:black;
+  }
+  
+  .note{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  
+  .selected-label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:12px;
+    background:#222;
+    border-radius:12px;
+    font-size:14px;
+    color:#ccc;
+  }
+  
+  .selected-icon{
+    font-size:16px;
+  }
+  
+  textarea{
+    height:110px;
+    resize:none;
+    padding:14px;
+    background:#222;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:14px;
+    outline:none;
+    transition:.2s;
+  }
+  
+  textarea:focus{
+    box-shadow:0 0 0 2px var(--primary);
+  }
+  
+  .note-actions{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+  }
+  
+  #cancel{
+    flex:1;
+    height:52px;
+    border:2px solid #444;
+    cursor:pointer;
+    border-radius:12px;
+    background:transparent;
+    color:#aaa;
+    font-size:15px;
+    font-weight:500;
+    font-family:"Poppins";
+    transition:.3s;
+  }
+  
+  #cancel:hover{
+    border-color:#777;
+    color:white;
+  }
+  
+  #save{
+    flex:1;
+    height:52px;
+    border:none;
+    cursor:pointer;
+    border-radius:12px;
+    background:linear-gradient(90deg, var(--primary), var(--accent));
+    color:white;
+    font-size:15px;
+    font-weight:500;
+    font-family:"Poppins";
+    transition:.3s;
+  }
+  
+  #save:hover{
+    opacity:.85;
+  }
+  
+  .saved-panel{
+    background:#222;
+    border-radius:18px;
+    padding:20px;
+    overflow:auto;
+  }
+  
+  .saved-panel h2{
+    margin-bottom:20px;
+  }
+  
+  #saved{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  
+  .item{
+    padding:14px;
+    background:#171717;
+    border-left:4px solid var(--primary);
+    border-radius:12px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  
+  .item small{
+    color:#888;
+    display:block;
+  }
+  
+  .item-text{
+    font-size:14px;
+    line-height:1.5;
+  }
+  
+  .item-actions{
+    display:flex;
+    gap:8px;
+    margin-top:4px;
+  }
+  
+  .btn-edit,
+  .btn-remove{
+    flex:1;
+    padding:6px 0;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:12px;
+    font-family:"Poppins";
+    font-weight:500;
+    transition:.2s;
+  }
+  
+  .btn-edit{
+    background:#1e3a4f;
+    color:var(--accent);
+  }
+  
+  .btn-edit:hover{
+    background:#25506e;
+  }
+  
+  .btn-remove{
+    background:#3a1e1e;
+    color:#ff6b6b;
+  }
+  
+  .btn-remove:hover{
+    background:#552828;
+  }
+  
+  .month-group-header{
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--primary);
+    margin-top:14px;
+    margin-bottom:6px;
+    padding-bottom:4px;
+    border-bottom:1px solid #333;
+  }
+  
+  .month-group-header:first-child{
+    margin-top:0;
+  }
+  
+  .empty{
+    color:#666;
+    font-size:13px;
+  }
+  
+  ::-webkit-scrollbar{
+    width:6px;
+  }
+  
+  ::-webkit-scrollbar-track{
+    background:#1A1A1A;
+    border-radius:10px;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    background:linear-gradient(180deg, var(--primary), var(--accent));
+    border-radius:10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover{
+    background:var(--secondary);
+  }
+  
+  @media(max-width:900px){
+    .container{
+      grid-template-columns:1fr;
+      height:auto;
+    }
+  
+    .inner{
+      grid-template-columns:1fr;
+    }
+  
+    .left{
+      height:250px;
+    }
+  
+    .right{
+      grid-template-columns:1fr;
+    }
+  }
