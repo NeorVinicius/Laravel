@@ -1,3 +1,4 @@
+/* VARIÁVEIS DE COR GLOBAIS */
 :root{
   --primary:#00AAFF;
   --secondary:#0090D9;
@@ -6,34 +7,72 @@
   --bg:#111;
   --card:#1A1A1A;
   --input:#222;
+  --border:#2a2a2a;
+  --purple:#8b5cf6;
 }
 
+/* RESET GERAL E SCROLLBAR */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:"Poppins";
+  font-family:'Poppins', sans-serif;
   scrollbar-width:thin;
   scrollbar-color:var(--primary) #1A1A1A;
 }
 
+/* CENTRALIZA O CONTEÚDO NA TELA */
 body{
   background:var(--bg);
+  color:#fff;
   min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
   padding:20px;
+  position:relative;
+  overflow-x:hidden;
 }
 
+/* BLURS DE FUNDO — MESMO PADRÃO DO SISTEMA */
+body::before{
+  content:"";
+  position:fixed;
+  width:320px;
+  height:320px;
+  background:var(--primary);
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:0.15;
+  top:100px;
+  left:-120px;
+  z-index:-1;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  width:380px;
+  height:380px;
+  background:var(--purple);
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:0.15;
+  right:-150px;
+  bottom:100px;
+  z-index:-1;
+}
+
+/* WRAPPER EXTERNO COM BORDA E CANVAS DA LUZ */
 .container{
   width:1200px;
   border-radius:26px;
   overflow:hidden;
   position:relative;
-  border:2px solid #333;
+  border:1px solid var(--border);
 }
 
+/* CANVAS DA LUZ QUE PERCORRE A BORDA */
 #borderLight{
   position:absolute;
   top:0;
@@ -45,6 +84,7 @@ body{
   border-radius:26px;
 }
 
+/* WRAPPER INTERNO COM FUNDO ESCURO */
 .inner{
   display:flex;
   flex-direction:column;
@@ -54,7 +94,7 @@ body{
   width:100%;
 }
 
-/* TOPO */
+/* ÁREA SUPERIOR: IMAGEM + CALENDÁRIO */
 .top-area{
   display:grid;
   grid-template-columns:30% 70%;
@@ -62,11 +102,13 @@ body{
   overflow:hidden;
 }
 
+/* COLUNA DA IMAGEM DO MÊS */
 .left{
   position:relative;
   overflow:hidden;
 }
 
+/* IMAGEM DO MÊS */
 .left img{
   width:100%;
   height:100%;
@@ -75,13 +117,14 @@ body{
   display:block;
 }
 
+/* BADGE COM MÊS E NÚMERO */
 .badge{
   position:absolute;
   top:30px;
   right:-10px;
   padding:12px 24px;
   border-radius:14px;
-  background:linear-gradient(90deg, var(--primary), var(--accent));
+  background:var(--primary);
   color:white;
   display:flex;
   flex-direction:column;
@@ -89,6 +132,7 @@ body{
   line-height:1.2;
 }
 
+/* NOME DO MÊS NO BADGE */
 .badge-month{
   font-size:11px;
   font-weight:400;
@@ -97,11 +141,13 @@ body{
   letter-spacing:1px;
 }
 
+/* NÚMERO DO MÊS NO BADGE */
 .badge-number{
   font-size:22px;
   font-weight:700;
 }
 
+/* COLUNA DO CALENDÁRIO */
 .right{
   display:flex;
   flex-direction:column;
@@ -110,11 +156,13 @@ body{
   overflow:hidden;
 }
 
+/* ÁREA SCROLLÁVEL DO CALENDÁRIO */
 .calendar-area{
   overflow-y:auto;
   flex:1;
 }
 
+/* NAVEGAÇÃO DO MÊS */
 .top{
   display:flex;
   justify-content:center;
@@ -126,22 +174,32 @@ body{
   font-size:26px;
 }
 
+/* BOTÕES DE NAVEGAÇÃO */
 .top button{
   background:none;
   border:none;
   color:white;
   font-size:28px;
   cursor:pointer;
+  transition:.2s;
 }
 
+.top button:hover{
+  color:var(--primary);
+  transform:scale(1.1);
+}
+
+/* DIAS DA SEMANA */
 .week{
   display:grid;
   grid-template-columns:repeat(7,1fr);
   margin-top:20px;
-  color:#777;
+  color:#666;
   text-align:center;
+  font-size:13px;
 }
 
+/* GRID DOS DIAS DO MÊS */
 .days{
   display:grid;
   grid-template-columns:repeat(7,1fr);
@@ -149,25 +207,32 @@ body{
   margin-top:10px;
 }
 
+/* CADA DIA DO CALENDÁRIO */
 .day{
   height:44px;
   display:flex;
   justify-content:center;
   align-items:center;
   cursor:pointer;
-  border-radius:12px;
-  transition:.3s;
+  border-radius:10px;
+  transition:.2s;
+  font-size:14px;
 }
 
 .day:hover{
-  background:linear-gradient(90deg, var(--primary), var(--secondary));
+  background:#222;
+  border:1px solid var(--primary);
+  color:var(--primary);
 }
 
+/* DIA SELECIONADO */
 .active{
-  background:linear-gradient(90deg, var(--primary), var(--light));
-  color:black;
+  background:var(--primary);
+  color:white;
+  font-weight:600;
 }
 
+/* ÁREA DO FORMULÁRIO DE LEMBRETE */
 .note{
   margin-top:20px;
   display:flex;
@@ -181,13 +246,15 @@ body{
   gap:12px;
 }
 
+/* LABEL DO DIA SELECIONADO */
 .selected-label{
   display:flex;
   align-items:center;
   gap:8px;
   padding:12px;
   background:#222;
-  border-radius:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
   font-size:14px;
   color:#ccc;
 }
@@ -196,41 +263,45 @@ body{
   font-size:16px;
 }
 
+/* TEXTAREA DO LEMBRETE */
 textarea{
   height:110px;
   resize:none;
   padding:14px;
   background:#222;
+  border:1px solid var(--border);
   color:white;
-  border:none;
-  border-radius:12px;
+  border-radius:10px;
   font-size:14px;
   outline:none;
   transition:.2s;
+  font-family:'Poppins', sans-serif;
 }
 
 textarea:focus{
-  box-shadow:0 0 0 2px var(--primary);
+  border-color:var(--primary);
 }
 
+/* BOTÕES DO FORMULÁRIO */
 .note-actions{
   display:flex;
   gap:10px;
   justify-content:center;
 }
 
+/* BOTÃO CANCELAR */
 #cancel{
   flex:1;
-  height:52px;
-  border:2px solid #444;
+  height:48px;
+  border:1px solid var(--border);
   cursor:pointer;
-  border-radius:12px;
+  border-radius:10px;
   background:transparent;
   color:#aaa;
-  font-size:15px;
-  font-weight:500;
-  font-family:"Poppins";
-  transition:.3s;
+  font-size:14px;
+  font-weight:600;
+  font-family:'Poppins', sans-serif;
+  transition:.2s;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -240,48 +311,59 @@ textarea:focus{
 #cancel:hover{
   border-color:#777;
   color:white;
+  transform:scale(1.02);
 }
 
+/* BOTÃO SALVAR */
 #save{
   flex:1;
-  height:52px;
+  height:48px;
   border:none;
   cursor:pointer;
-  border-radius:12px;
-  background:linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius:10px;
+  background:var(--primary);
   color:white;
-  font-size:15px;
-  font-weight:500;
-  font-family:"Poppins";
-  transition:.3s;
+  font-size:14px;
+  font-weight:600;
+  font-family:'Poppins', sans-serif;
+  transition:.2s;
 }
 
 #save:hover{
-  opacity:.85;
+  background:#008fcc;
+  transform:scale(1.02);
 }
 
-/* BAIXO */
+/* ÁREA INFERIOR: PESQUISA + LEMBRETES */
 .bottom-area{
-  border-top:1px solid #2a2a2a;
+  border-top:1px solid var(--border);
   padding:20px 25px;
   display:flex;
   flex-direction:column;
   gap:16px;
 }
 
+/* BARRA DE PESQUISA */
 .search-bar{
   display:flex;
   align-items:center;
   gap:12px;
   background:#222;
-  border-radius:14px;
+  border:1px solid var(--border);
+  border-radius:10px;
   padding:10px 16px;
+  transition:.2s;
+}
+
+.search-bar:focus-within{
+  border-color:var(--primary);
 }
 
 .search-icon{
   font-size:16px;
 }
 
+/* INPUT DE TEXTO DA PESQUISA */
 #searchInput{
   flex:1;
   background:transparent;
@@ -289,64 +371,82 @@ textarea:focus{
   outline:none;
   color:white;
   font-size:14px;
-  font-family:"Poppins";
+  font-family:'Poppins', sans-serif;
 }
 
 #searchInput::placeholder{
   color:#555;
 }
 
+/* SELECT DE MÊS DA PESQUISA */
 #searchMonth{
   background:#333;
-  border:none;
+  border:1px solid var(--border);
   outline:none;
   color:white;
   font-size:13px;
-  font-family:"Poppins";
+  font-family:'Poppins', sans-serif;
   padding:6px 10px;
   border-radius:8px;
   cursor:pointer;
+  transition:.2s;
+}
+
+#searchMonth:focus{
+  border-color:var(--primary);
 }
 
 #searchMonth option{
   background:#222;
 }
 
+/* PAINEL DOS LEMBRETES */
 .saved-panel{
   background:#222;
-  border-radius:18px;
+  border:1px solid var(--border);
+  border-radius:16px;
   padding:20px;
   max-height:220px;
   overflow-y:auto;
 }
 
+/* GRID DOS CARDS DE LEMBRETES */
 #saved{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
   gap:10px;
 }
 
+/* CARD DE CADA LEMBRETE */
 .item{
   padding:14px;
-  background:#171717;
-  border-left:4px solid var(--primary);
-  border-radius:12px;
+  background:#1a1a1a;
+  border:1px solid var(--border);
+  border-left:3px solid var(--primary);
+  border-radius:10px;
   display:flex;
   flex-direction:column;
   gap:8px;
+  transition:.2s;
+}
+
+.item:hover{
+  border-color:var(--primary);
 }
 
 .item small{
-  color:#888;
+  color:#666;
   display:block;
+  font-size:12px;
 }
 
 .item-text{
   font-size:14px;
   line-height:1.5;
-  color:white;
+  color:#ccc;
 }
 
+/* BOTÕES DE AÇÃO DO CARD */
 .item-actions{
   display:flex;
   gap:8px;
@@ -356,12 +456,12 @@ textarea:focus{
 .btn-edit,
 .btn-remove{
   flex:1;
-  padding:6px 0;
+  padding:7px 0;
   border:none;
   border-radius:8px;
   cursor:pointer;
   font-size:12px;
-  font-family:"Poppins";
+  font-family:'Poppins', sans-serif;
   font-weight:500;
   transition:.2s;
   text-decoration:none;
@@ -370,26 +470,33 @@ textarea:focus{
   align-items:center;
 }
 
+/* BOTÃO EDITAR */
 .btn-edit{
   background:#1e3a4f;
-  color:var(--accent);
+  color:var(--primary);
+  border:1px solid #1e3a4f;
 }
 
 .btn-edit:hover{
-  background:#25506e;
+  background:transparent;
+  border-color:var(--primary);
 }
 
+/* BOTÃO REMOVER */
 .btn-remove{
   background:#3a1e1e;
   color:#ff6b6b;
+  border:1px solid #3a1e1e;
 }
 
 .btn-remove:hover{
-  background:#552828;
+  background:transparent;
+  border-color:#ff6b6b;
 }
 
+/* CABEÇALHO DO GRUPO DE MÊS */
 .month-group-header{
-  font-size:13px;
+  font-size:12px;
   font-weight:600;
   text-transform:uppercase;
   letter-spacing:1px;
@@ -397,7 +504,7 @@ textarea:focus{
   margin-top:14px;
   margin-bottom:6px;
   padding-bottom:4px;
-  border-bottom:1px solid #333;
+  border-bottom:1px solid var(--border);
   grid-column:1 / -1;
 }
 
@@ -405,21 +512,24 @@ textarea:focus{
   margin-top:0;
 }
 
+/* MENSAGEM DE LISTA VAZIA */
 .empty{
-  color:#666;
+  color:#555;
   font-size:13px;
   grid-column:1 / -1;
 }
 
+/* ALERTA DE SUCESSO */
 .alert-success{
   padding:12px 16px;
   background:#1a3a1a;
-  border-left:4px solid #4caf50;
-  border-radius:12px;
+  border:1px solid #2d5a2d;
+  border-radius:10px;
   color:#81c784;
   font-size:14px;
 }
 
+/* LABELS DOS FORMULÁRIOS */
 label{
   display:block;
   color:#aaa;
@@ -428,17 +538,18 @@ label{
   margin-top:14px;
 }
 
+/* INPUTS DOS FORMULÁRIOS */
 input[type="text"],
 input[type="email"],
 input[type="password"]{
   width:100%;
-  padding:12px 14px;
+  padding:12px;
   background:#222;
-  border:none;
-  border-radius:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
   color:white;
   font-size:14px;
-  font-family:"Poppins";
+  font-family:'Poppins', sans-serif;
   outline:none;
   transition:.2s;
 }
@@ -446,9 +557,10 @@ input[type="password"]{
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus{
-  box-shadow:0 0 0 2px var(--primary);
+  border-color:var(--primary);
 }
 
+/* TELA DE EDIÇÃO */
 .edit-area{
   min-height:100vh;
   justify-content:center;
@@ -457,7 +569,8 @@ input[type="password"]:focus{
 }
 
 .edit-card{
-  background:#222;
+  background:#1a1a1a;
+  border:1px solid var(--border);
   border-radius:20px;
   padding:36px;
   width:100%;
@@ -473,6 +586,7 @@ input[type="password"]:focus{
   margin-bottom:8px;
 }
 
+/* SCROLLBAR CUSTOMIZADA */
 ::-webkit-scrollbar{
   width:6px;
 }
@@ -483,7 +597,7 @@ input[type="password"]:focus{
 }
 
 ::-webkit-scrollbar-thumb{
-  background:linear-gradient(180deg, var(--primary), var(--accent));
+  background:var(--primary);
   border-radius:10px;
 }
 
@@ -491,6 +605,113 @@ input[type="password"]:focus{
   background:var(--secondary);
 }
 
+/* MODAL DE CONFIRMAÇÃO DE REMOÇÃO */
+.modal-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:100;
+  backdrop-filter:blur(4px);
+}
+
+/* CAIXA DO MODAL */
+.modal-box{
+  background:#1a1a1a;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:36px;
+  max-width:400px;
+  width:90%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  animation:modalIn .2s ease;
+}
+
+/* ANIMAÇÃO DE ENTRADA DO MODAL */
+@keyframes modalIn{
+  from{ transform:scale(.9); opacity:0; }
+  to{   transform:scale(1);  opacity:1; }
+}
+
+.modal-icon{
+  font-size:42px;
+}
+
+.modal-title{
+  color:white;
+  font-size:20px;
+  font-weight:600;
+}
+
+.modal-text{
+  color:#888;
+  font-size:14px;
+  text-align:center;
+  line-height:1.6;
+}
+
+/* BOTÕES DO MODAL */
+.modal-actions{
+  display:flex;
+  gap:12px;
+  width:100%;
+  margin-top:8px;
+}
+
+/* BOTÃO CANCELAR DO MODAL */
+.modal-cancel{
+  flex:1;
+  height:48px;
+  border:1px solid var(--border);
+  cursor:pointer;
+  border-radius:10px;
+  background:transparent;
+  color:#aaa;
+  font-size:14px;
+  font-weight:600;
+  font-family:'Poppins', sans-serif;
+  transition:.2s;
+}
+
+.modal-cancel:hover{
+  border-color:#777;
+  color:white;
+  transform:scale(1.02);
+}
+
+/* BOTÃO CONFIRMAR REMOÇÃO DO MODAL */
+.modal-confirmar{
+  flex:1;
+  height:48px;
+  border:none;
+  cursor:pointer;
+  border-radius:10px;
+  background:#cc0000;
+  color:white;
+  font-size:14px;
+  font-weight:600;
+  font-family:'Poppins', sans-serif;
+  transition:.2s;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration:none;
+}
+
+.modal-confirmar:hover{
+  background:#ff4444;
+  transform:scale(1.02);
+}
+
+/* RESPONSIVO */
 @media(max-width:900px){
   .top-area{
     grid-template-columns:1fr;
