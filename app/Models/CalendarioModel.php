@@ -9,5 +9,5 @@ class CalendarioModel extends Model
 {
     use HasFactory;
     protected $table = 'calendario';
-    protected $fillable = ['dia', 'mês', 'ano'];
+    protected $fillable = ['dia', 'mes', 'ano', 'lembrete'];
 }

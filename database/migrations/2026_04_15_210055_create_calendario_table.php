@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('dia');
-            $table->string('mês');
+            $table->string('mes');
             $table->string('ano');
+            $table->string('lembrete');
         });
     }
 
