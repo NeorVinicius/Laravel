@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Memo Agenda</title>
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/calendario.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -60,6 +60,16 @@
               <div class="alert-success">{{ $success }}</div>
             @endif
 
+            {{-- ERROS DE VALIDAÇÃO DO LARAVEL --}}
+            {{-- APARECE QUANDO O DIA NÃO FOI SELECIONADO OU LEMBRETE INVÁLIDO --}}
+            @if($errors->any())
+              <div class="aviso-dia">
+                @foreach($errors->all() as $erro)
+                  <span>⚠️ {{ $erro }}</span>
+                @endforeach
+              </div>
+            @endif
+
             {{-- DIA SELECIONADO, ATUALIZADO PELO JS AO CLICAR NO CALENDÁRIO --}}
             <div class="selected-label">
               <span class="selected-icon">📅</span>
@@ -79,7 +89,7 @@
                 id="text"
                 placeholder="Escreva um lembrete para este dia..."
                 maxlength="300"
-              ></textarea>
+              >{{ old('lembrete') }}</textarea>
 
               <div class="note-actions">
                 <button type="submit" id="save">Salvar</button>
@@ -203,6 +213,6 @@
   </div>
 </div>
 
-<script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/calendario.js') }}"></script>
 </body>
 </html>

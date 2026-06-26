@@ -263,6 +263,20 @@ body::after{
   font-size:16px;
 }
 
+
+/* Validação */
+.aviso-dia{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:12px 16px;
+  background:#3a2a00;
+  border:1px solid #f59e0b;
+  border-radius:10px;
+  color:#f59e0b;
+  font-size:13px;
+}
+
 /* TEXTAREA DO LEMBRETE */
 textarea{
   height:110px;

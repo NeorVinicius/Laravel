@@ -1,0 +1,207 @@
+/* ===== CONFIGURAÇÕES GERAIS ===== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: #111;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* ===== BLUR (Efeito de Fundo) ===== */
+.blur{
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.blur1{
+    width: 320px;
+    height: 320px;
+    background: #00aaff;
+    top: 100px;
+    left: -120px;
+}
+
+.blur2{
+    width: 380px;
+    height: 380px;
+    background: #8b5cf6;
+    right: -150px;
+    bottom: 100px;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== CARD DE LOGIN ===== */
+.login-card{
+    width: 380px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+}
+
+/* ===== BRAND ===== */
+.brand{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.brand span{
+    color: #00aaff;
+}
+
+/* ===== TEXTOS ===== */
+h2{
+    margin-bottom: 8px;
+}
+
+p{
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* ===== CAIXA DE ERRO (LARAVEL) ===== */
+.alert-error {
+    background-color: rgba(239, 68, 68, 0.2);
+    border: 1px solid #ef4444;
+    color: #fca5a5;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* ===== INPUTS ===== */
+input{
+    width: 100%;
+    background: #222;
+    border: 1px solid #2a2a2a;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus{
+    border-color: #00aaff;
+    box-shadow: 0 0 5px rgba(0, 170, 255, 0.3);
+}
+
+/* ===== BOTÕES (ESTILO BASE) ===== */
+button{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+/* BOTÃO PRINCIPAL (ENTRAR) */
+.btn-primary {
+    background: #00aaff;
+    color: white;
+}
+
+.btn-primary:hover{
+    background: #008fcc;
+    transform: scale(1.02);
+}
+
+/* GOOGLE BUTTON */
+.google-btn{
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    color: white;
+    margin-top: 10px;
+    padding: 12px;
+}
+
+.google-btn:hover{
+    border-color: #00aaff;
+    transform: translateY(-2px);
+}
+
+/* ===== LINKS ===== */
+.forgot{
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    color: #00aaff;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+.forgot:hover{
+    text-decoration: underline;
+}
+
+/* ===== DIVIDER ===== */
+.divider{
+    margin: 15px 0;
+    color: #666;
+    font-size: 12px;
+    position: relative;
+}
+
+.divider::before,
+.divider::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 35%;
+    height: 1px;
+    background: #2a2a2a;
+}
+
+.divider::before{ left: 0; }
+.divider::after{ right: 0; }
+
+/* ===== SIGNUP LINK ===== */
+.signup{
+    margin-top: 15px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.signup a{
+    color: #00aaff;
+    text-decoration: none;
+}
+
+.signup a:hover{
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVO ===== */
+@media(max-width: 500px){
+    .login-card{
+        width: 90%;
+        padding: 25px;
+    }
+
+    h2{
+        font-size: 1.3rem;
+    }
+}
