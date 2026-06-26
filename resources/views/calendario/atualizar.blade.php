@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Editar Lembrete</title>
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/calendario.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -105,6 +105,6 @@
   const mesInicial = {{ $calendario->mes }} - 1
   const anoInicial = {{ $calendario->ano }}
 </script>
-<script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/calendario.js') }}"></script>
 </body>
 </html>
