@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ContatoModel>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Produto>
  */
-class ContatoModelFactory extends Factory
+class ProdutoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class ContatoModelFactory extends Factory
     public function definition(): array
     {
         return [
-            "nome"=> $this->faker->name,
-            "email"=> $this->faker->unique()->safeEmail,
+            "nome" => $this->faker->name,
+            "preco" => $this->faker->randomFloat(2, 10, 500),
         ];
     }
 }

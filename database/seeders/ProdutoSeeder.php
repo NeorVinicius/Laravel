@@ -4,15 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\ContatoModel;
+use App\Models\Produto;
 
-class ContatoModelSeeder extends Seeder
+class ProdutoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        ContatoModel::factory()->count(50)->create();
+        Produto::factory()->count(100)->create();
     }
 }
